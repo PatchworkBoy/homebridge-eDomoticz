@@ -26,6 +26,12 @@
 				"default": "8080",
 				"required": true
 			},
+			"webroot": {
+				"title": "Webroot",
+				"type": "string",
+				"default": "",
+				"required": false
+			},
 			"roomid": {
 				"title": "Room ID",
 				"type": "integer",
@@ -68,6 +74,7 @@
 			"items": [
 				"server",
 				"port",
+				"webroot",
 				"roomid"
 			]
 		}, {

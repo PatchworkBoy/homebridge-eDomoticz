@@ -26,6 +26,7 @@
 //         "name": "eDomoticz",
 //         "server": "127.0.0.1",   // or "user:pass@ip"
 //         "port": "8080",
+//         "webroot": "",
 //         "roomid": 0 ,  // 0 = all sensors, otherwise, room idx as shown at http://server:port/#/Roomplan
 //         "ssl": 0,
 //         "mqtt": true
@@ -109,9 +110,10 @@ function eDomoticzPlatform(log, config, api) {
 
         this.ssl = (config.ssl == 1);
         this.port = config.port;
+        this.webroot = config.webroot;
         this.room = config.roomid;
         this.api = api;
-        this.apiBaseURL = "http" + (this.ssl ? "s" : "") + "://" + this.server + ":" + this.port + "/json.htm?";
+        this.apiBaseURL = "http" + (this.ssl ? "s" : "") + "://" + this.server + ":" + this.port + ((this.webroot === undefined) ? "" : "/" + this.webroot ) + "/json.htm?";
         this.mqtt = false;
     } catch (e) {
         this.forceLog(e);
